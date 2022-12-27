@@ -9,6 +9,7 @@ x-environment-vars: &environment-vars
 
 x-defaults: &defaults
   image: eventyay/open-event-server:development
+  build: .
   restart: unless-stopped
   env_file:
     - .env
