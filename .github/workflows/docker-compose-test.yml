@@ -10,6 +10,11 @@
         - name: Checkout
           uses: actions/checkout@v3
   
+        - name: prebuild setup
+          run: |
+              cp .env.example .env && \
+              echo TEST_DATABASE_URL=postgresql://test@localhost:5433/test >> .env
+              
         - name: Tests
           uses: cloudposse/github-action-docker-compose-test-run@main
           with:
